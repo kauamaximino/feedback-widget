@@ -1,23 +1,5 @@
-interface ButtonProps {
-  text: string
-}
+import { Widget } from './components/Widget';
 
-function Button({text}: ButtonProps) {
-  return (
-    <button>{text}</button>
-  );
+export function App() {
+  return <Widget />
 }
-
-function App() {
-  
-  return (
-    <div>
-      <Button text="Hello" />
-      <Button text="World" />
-      <Button text="!"/>
-    </div>
-  )
-}
-
-export default App
-  
