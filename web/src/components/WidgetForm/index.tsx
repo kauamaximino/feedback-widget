@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { CloseButton } from '../CloseButton'
 
-import bug from '../../assets/images/bug.svg'
+import bug from '../../assets/bug.svg'
 import idea from '../../assets/idea.svg'
 import other from '../../assets/other.svg'
 import { FeedbackTypeStep } from './Steps/FeedbackTypeStep'
@@ -30,7 +30,7 @@ export const feedbackTypes = {
   },
 };
 
-type FeedbackTypes = keyof typeof feedbackTypes;
+export type FeedbackTypes = keyof typeof feedbackTypes;
 
 export function WidgetForm() {
   const [feedbackType, setFeedbackType] = useState<FeedbackTypes | null>(null);
@@ -43,7 +43,7 @@ export function WidgetForm() {
       </header>
 
       {!feedbackType ? (
-        <FeedbackTypeStep />
+        <FeedbackTypeStep onFeedbackTypeChanged={setFeedbackType}/>
       ) : (
           <p>Hello World</p>
       )}
