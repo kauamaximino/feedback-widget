@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { CloseButton } from './CloseButton'
+import { CloseButton } from '../CloseButton'
 
-import bug from '../assets/bug.svg'
-import idea from '../assets/idea.svg'
-import other from '../assets/other.svg'
+import bug from '../../assets/images/bug.svg'
+import idea from '../../assets/idea.svg'
+import other from '../../assets/other.svg'
+import { FeedbackTypeStep } from './Steps/FeedbackTypeStep'
 
-const feedbackTypes = {
+export const feedbackTypes = {
   BUG: {
     title: 'Problema',
     image: {
@@ -42,22 +43,7 @@ export function WidgetForm() {
       </header>
 
       {!feedbackType ? (
-        <div className='flex py-8 gap-2 w-full'>
-          {Object.entries(feedbackTypes).map(([key, value]) => {
-            return (
-              <button
-                key={key}
-                type='button'
-                className='bg-zinc-800 rounded-lg py-5 w-24 flex-1 flex flex-col items-center gap-2 border-2 border-transparent hover:border-brand-500 focus:border-brand-500 focus:outline-none'
-                onClick={() => setFeedbackType(key as FeedbackTypes)}
-              >
-                <img className='h-12' src={value.image.source} alt={value.image.alt} />
-                <span>{value.title}</span>
-              </button>
-            );
-          })
-          }
-        </div>
+        <FeedbackTypeStep />
       ) : (
           <p>Hello World</p>
       )}
